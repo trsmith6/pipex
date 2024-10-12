@@ -17,6 +17,9 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include <string.h>
+# include <sys/wait.h>
+# include <fcntl.h>
 # include "libft/libft.h"
 # include "printf/ft_printf.h"
 

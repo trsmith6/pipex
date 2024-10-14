@@ -32,7 +32,7 @@ char	*pathfndr(char *cmd, char **envp);
 void	execute(char *argv, char **envp);
 
 		//family.c//
-void	child_op(char **argv, int *fd, char **envp);
+void	child_op(char **argv, char **envp, int *fd);
 void	parent_op(char **argv, char **envp, int *fd);
 
 #endif

@@ -12,7 +12,7 @@
 
 #include "pipex.h"
 
-void	child_op(char **argv, int *fd, char **envp)
+void	child_op(char **argv, char **envp, int *fd)
 {
 	int	file_input;
 

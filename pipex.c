@@ -55,7 +55,7 @@ char	*pathfndr(char *cmd, char **envp)
 		i++;
 	paths = ft_split(envp[i] + 5, ':');
 	i = 0;
-	while (paths[i]);
+	while (paths[i])
 	{
 		part_path = ft_strjoin(paths[i], "/");
 		path = ft_strjoin(part_path, cmd);

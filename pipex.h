@@ -20,8 +20,9 @@
 # include <string.h>
 # include <sys/wait.h>
 # include <fcntl.h>
-# include "libft/libft.h"
-# include "printf/ft_printf.h"
+# include "main-libs/libft/libft.h"
+# include "main-libs/printf/ft_printf.h"
+# include "main-libs/gnl/get_next_line.h"
 
 		//pipex.c//
 int	main(int argc, char *argv[], char **env);

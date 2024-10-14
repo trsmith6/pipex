@@ -12,17 +12,23 @@
 
 #include "pipex.h"
 
-int	main(int argc, char *argv[], char **env)
+int	main(int argc, char *argv[], char **envp)
 {
 	int	fd[2];
-	pid_t	pid;
+	pid_t	pid1;
 
-	if (argc != 5)
-		errmssg(1);
-	if (pipe(fd) == -1)
-		exit (-1);
-	pid = fork();
-
+	if (argc == 5)
+		{
+			if (pipe(fd) == -1)
+				error();
+			pid1 = fork();
+			if (pid1 == -1)
+				error();
+			if (pid1 == 0);
+				child_op(argv, envp, fd);
+			waitpid(pid1, NULL, 0);
+			parent_op(argv, envp, fd);
+		}
 }
 
 void	errmssg(int err)
@@ -64,4 +70,24 @@ char	*pathfndr(char *cmd, char **envp)
 		free(paths[i]);
 	free(paths);
 	return (0);
+}
+
+void	execute(char *argv, char **envp)
+{
+	char	**cmd;
+	int		i;
+	char	*path;
+
+	i = -1;
+	cmd = ft_split(argv, ' ');
+	path = pathfndr(cmd[0], envp);
+	if (!path)
+	{
+		while (cmd[++i])
+			free(cmd[i]);
+		free(cmd);
+		error();
+	}
+	if (execve(path, cmd, envp) == -1)
+		error();
 }

@@ -24,7 +24,7 @@ int	main(int argc, char *argv[], char **envp)
 			pid1 = fork();
 			if (pid1 == -1)
 				error();
-			if (pid1 == 0);
+			if (pid1 == 0)
 				child_op(argv, envp, fd);
 			waitpid(pid1, NULL, 0);
 			parent_op(argv, envp, fd);

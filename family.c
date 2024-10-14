@@ -12,7 +12,7 @@
 
 #include "pipex.h"
 
-void	child_op(char **argv, int *fd, char **env)
+void	child_op(char **argv, int *fd, char **envp)
 {
 	int	file_input;
 
@@ -37,4 +37,3 @@ void	parent_op(char **argv, char **envp, int *fd)
 	close(fd[1]);
 	execute(argv[3], envp);
 }
-

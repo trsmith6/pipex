@@ -25,6 +25,14 @@
 # include "main-libs/gnl/get_next_line.h"
 
 		//pipex.c//
-int	main(int argc, char *argv[], char **env);
+int		main(int argc, char *argv[], char **envp);
+void	errmssg(int err);
+void	error(void);
+char	*pathfndr(char *cmd, char **envp);
+void	execute(char *argv, char **envp);
+
+		//family.c//
+void	child_op(char **argv, int *fd, char **envp);
+void	parent_op(char **argv, char **envp, int *fd);
 
 #endif
